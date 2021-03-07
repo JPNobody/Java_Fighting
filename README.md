@@ -1,8 +1,5 @@
 # Overview
 
-{Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
-
-{Provide a description the software that you wrote to demonstrate the Java language.}
 This is a medieval style fighting game, using the commandline. This program uses several 
 classes be able to create objects in the game such as fighters, weapons, and moves. The Fighter 
 class is used to create the Player and Enemy classes which uses different systems for making
