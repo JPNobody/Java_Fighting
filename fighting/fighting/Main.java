@@ -1,7 +1,5 @@
 package fighting;
 
-
-
 /*
 possible directions include
 r is RIGHT

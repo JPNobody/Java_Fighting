@@ -3,17 +3,9 @@ package fighting;
 import java.util.Scanner;
 
 public class Game {
-   private String wrongInput = "That's not an option!";
-   private String getWeaponText = "\nwhat kind of weapon would you like?\n" +
-                                  "w) Sword and shield\n" +
-                                  "x) Axe and shield\n" +
-                                  "s) spear and shield\n" +
-                                  "W) Greatsword\n" +
-                                  "X) Greataxe\n" +
-                                  "S) Longspear";
    private String player1Name = "Player1";
-   private String player2Name = "Player2"; 
-   private String getName = ", what is your name?";
+   private String player2Name = "Player2";
+   UserInterface ui = new UserInterface();
    Player player1;
 
    
@@ -28,11 +20,11 @@ public class Game {
       switch(choice){
          case 1:
             // one player game mode
-            System.out.println("Player1" + getName);
+            ui.printPlayerName("1");
             player1Name = in.nextLine();
-            System.out.println(getWeaponText);
+            ui.printWeaponText();
             String PWeapon = getWeaponType();
-            System.out.println("For CP\n" + getWeaponText);
+            ui.printCPWeaponText();
             String CPWeapon = getWeaponType();
             player1 = new Player(PWeapon, player1Name, true);
             Enemy CP = new Enemy(CPWeapon, "CP", false);
@@ -41,14 +33,14 @@ public class Game {
             break;
          case 2:
             // two player game mode
-            System.out.println("\nPlayer1" + getName);
+            ui.printPlayerName("1");
             player1Name = in.nextLine();
-            System.out.println(getWeaponText);
+            ui.printWeaponText();
             String weapon1 = getWeaponType();
 
-            System.out.println("\nPlayer2" + getName);   
+            ui.printPlayerName("2");   
             player2Name = in.nextLine();
-            System.out.println(getWeaponText);
+            ui.printWeaponText();
             String weapon2 = getWeaponType();
             player1 = new Player(weapon1, player1Name, true);
             Player player2 = new Player(weapon2, player2Name, true);
@@ -56,7 +48,7 @@ public class Game {
             game.play();
             break;
          default:
-            System.out.println(wrongInput);
+            ui.printWrongOutput();;
       }
       in.close();
    }
@@ -71,13 +63,13 @@ public class Game {
          while (!myObj.hasNextInt()) 
          {
             myObj.next();
-            System.out.println(wrongInput);
+            ui.printWrongOutput();
          }
          choice = myObj.nextInt();
          isInvalid = false;
          if (choice < startLimit || choice > endLimit)
          {
-            System.out.println(wrongInput);
+            ui.printWrongOutput();
             isInvalid = true;
          }
       } while (isInvalid);
@@ -96,7 +88,7 @@ public class Game {
          while(!myObj.hasNextLine())
          {
             myObj.next();
-            System.out.println(wrongInput);
+            ui.printWrongOutput();
          }
          choice = myObj.nextLine();
          isInvalid = false;
@@ -138,3 +130,4 @@ public class Game {
       return finalChoice;
    }
 }
+
