@@ -11,6 +11,12 @@ public class UserInterface {
     private String wrongInput = "That's not an option!";
     private String getName = ", what is your name?";
 
+    public void printGameChoice(){
+        System.out.println("What type of game would you like to play?\n" +
+                         "1) Single Player\n" +
+                         "2) Two Player"); 
+    }
+
     public void printWrongOutput(){
         System.out.println(wrongInput);
     }
@@ -27,3 +33,4 @@ public class UserInterface {
         System.out.println("\nPlayer" + PlayerNumber + getName);
     }
 }
+

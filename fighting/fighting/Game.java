@@ -12,9 +12,7 @@ public class Game {
    //This runs the game
    public void run(){
       Scanner in = new Scanner(System.in);
-      System.out.println("What type of game would you like to play?\n" +
-                         "1) Single Player\n" +
-                         "2) Two Player");         
+      ui.printGameChoice();        
       int choice = getChoiceNumb(1, 2);
       //This allows for multiple game modes.
       switch(choice){
